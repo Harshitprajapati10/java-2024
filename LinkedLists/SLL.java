@@ -2,7 +2,6 @@ class SLL {
   private Node head;
   private Node tail;
   private int size;
-
   public SLL() {
     this.size = 0;
   }
@@ -131,25 +130,57 @@ class SLL {
     return null;
   }
 
+
+  //insertion using recursion
+  public void insertRec(int val, int index){
+    head = insertRec(val, index, head);
+  }
+  private Node insertRec(int val, int index, Node node){
+      if(index == 0){
+        Node temp = new Node(val, node);
+        size++;
+        return temp;
+      }
+      node.next = insertRec(val, index-1, node.next);
+      return node;
+  }
+
+  // remove duplicates
+  public void duplicates(){
+    Node node = head;
+    while(node.next != null){
+      System.out.println(node.value);
+      if(node.value == node.next.value){
+        node.next = node.next.next;
+        size--;
+      }else{
+        node = node.next;
+      }
+      tail = node;
+      tail.next = null;
+    }
+  }
+
+
+
+  //Merge two sorted lists
+  public Node mergeTwoLists(Node f, Node s){
+    Node first = f; Node second = s;
+    
+  }
+
   public static void main(String[] args) {
     SLL list = new SLL();
-    list.insertFirst(3);
     list.insertFirst(4);
-    list.insertFirst(89);
-    list.insertFirst(8);
+    list.insertFirst(4);
+    list.insertFirst(2);
+    list.insertFirst(1);
+    list.insertFirst(1);
+    list.insertFirst(1);
     list.display();
-    list.insertLast(91);
-    list.display();
-    list.insert(13,2);
-    list.insert(54, 5);
-    list.display();
-    list.deleteFirst();
-    list.display();
-    list.deleteLast();
-    list.display();
-    list.delete(4);
-    list.display();
-    System.out.println(list.find(13));
+     
+    // 1) Remove duplicates from singly linked list
+    list.duplicates();
     list.display();
   }
 }

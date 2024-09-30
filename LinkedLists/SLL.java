@@ -161,6 +161,46 @@ class SLL {
     }
   }
 
+
+  //Merge sort
+  public Node sortList(Node head){
+    if(head == null || head.next == null){
+      return head;
+    }
+
+    Node mid = getMid(head);
+    Node left = sortList(head);
+    Node right = sortList(mid);
+    return merge(left,right);
+  }
+  public Node merge(Node list1, Node list2){
+    Node dummy = new SLL().head;
+    Node tail = dummy;
+    while(list1 != null && list2 != null){
+      if(list1.value < list2.value){
+        tail.next = list1;
+        list1 = list1.next;
+        tail = tail.next;
+      }else{
+        tail.next = list2;
+        list2 = list2.next;
+        tail = tail.next;
+      }
+    }tail.next = (list1!=null)?list1:list2;
+    return dummy.next;
+  }
+  public Node getMid(Node head){
+    Node midPrev = null;
+    while(head!=null && head.next != null){
+      midPrev = (midPrev == null)?head:midPrev.next;
+      head = head.next.next;
+    }
+    Node mid = midPrev.next;
+    midPrev.next = null;
+    return mid;
+  }
+
+  
   public static void main(String[] args) {
     SLL list = new SLL();
     list.insertFirst(4);

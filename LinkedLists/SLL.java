@@ -161,14 +161,6 @@ class SLL {
     }
   }
 
-
-
-  //Merge two sorted lists
-  public Node mergeTwoLists(Node f, Node s){
-    Node first = f; Node second = s;
-    
-  }
-
   public static void main(String[] args) {
     SLL list = new SLL();
     list.insertFirst(4);

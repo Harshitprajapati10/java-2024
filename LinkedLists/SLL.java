@@ -200,7 +200,33 @@ class SLL {
     return mid;
   }
 
-  
+  // addtiton of two LL
+
+  /* 
+
+    public ListNode addTwoNumbers(ListNode list1, ListNode list2) {
+      ListNode f = list1, s = list2;
+      ListNode ans = new ListNode(0); 
+      ListNode dummy = ans;
+      int carry = 0;
+      while (f != null || s != null || carry != 0) {
+          int sum = carry;
+          if (f != null) {
+              sum += f.val;
+              f = f.next;
+          }
+          if (s != null) {
+              sum += s.val;
+              s = s.next;
+          }
+          dummy.next = new ListNode(sum % 10);
+          carry = sum / 10;
+          dummy = dummy.next;
+      }
+      return ans.next; 
+  }
+
+*/
   public static void main(String[] args) {
     SLL list = new SLL();
     list.insertFirst(4);

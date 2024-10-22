@@ -13,14 +13,25 @@
 
 def generate(numRows):
     triangle = []
-    for rows in range(numRows):
-        elements = []
-        for col in range(rows + 1): # 1 2  3  4 5
-
-            elements.append(col + 1)
-            # prev = elements
-
-        triangle.append(elements)
+    for i in range(numRows):
+        row = [1] * (i+1)
+        for j in range(1,i):
+            row[j] = triangle[i-1][j-1] + triangle[i-1][j]
+        triangle.append(row)
     return triangle
 
-print(generate(5))
+# print(generate(15))
+
+
+
+# returning nth row of pascals triangle
+def generaterow(numRows):
+    triangle = []
+    for i in range(numRows):
+        row = [1] * (i+1)
+        for j in range(1,i):
+            row[j] = triangle[i-1][j-1] + triangle[i-1][j]
+        triangle.append(row)
+    return triangle[numRows-1]
+
+print(generaterow(5))

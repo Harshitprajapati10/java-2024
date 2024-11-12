@@ -24,7 +24,7 @@ const bestSum = (targetSum, numbers, memo = {}) => {
     return shortestCombination;
 };
 
-
+console.log(bestSum(11, [1,2,5]))
 console.log(bestSum(7,[5,3,4,5]))
 console.log(bestSum(7,[2,4]))
 console.log(bestSum(100,[25,3,3,4]))
